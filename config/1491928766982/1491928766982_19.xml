@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><yaft>
+  <request>
+    <requestline>
+      <method>GET</method>
+      <uri>https://www.facebook.com/impression.php/f103aef51fff512/?api_key=277385395761685&amp;lid=115&amp;payload=%7B%22source%22%3A%22jssdk%22%7D</uri>
+      <httpVersion>HTTP/1.1</httpVersion>
+    </requestline>
+    <headers>
+      <header>
+        <key>Host</key>
+        <value>www.facebook.com</value>
+      </header>
+      <header>
+        <key>User-Agent</key>
+        <value>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:45.0) Gecko/20100101 Firefox/45.0</value>
+      </header>
+      <header>
+        <key>Accept</key>
+        <value>image/png,image/*;q=0.8,*/*;q=0.5</value>
+      </header>
+      <header>
+        <key>Accept-Language</key>
+        <value>en-US,en;q=0.5</value>
+      </header>
+      <header>
+        <key>Accept-Encoding</key>
+        <value>gzip, deflate, br</value>
+      </header>
+      <header>
+        <key>Referer</key>
+        <value>http://localhost/dashboard/</value>
+      </header>
+      <header>
+        <key>Connection</key>
+        <value>keep-alive</value>
+      </header>
+    </headers>
+  </request>
+</yaft>

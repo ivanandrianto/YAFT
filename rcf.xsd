@@ -1,0 +1,144 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="yaft">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="before" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="macro" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:byte" name="id"/>
+                      <xs:attribute type="xs:string" name="part"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+		<xs:element type="xs:string" name="timeout" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="request" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="requestline" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="method" minOccurs="1" maxOccurs="1">
+					  <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="fuzz" type="FuzzType" minOccurs = '0' 
+                            maxOccurs = 'unbounded' />
+						  <xs:element name="macro" type="MacroType" minOccurs = '0' 
+                            maxOccurs = '1' />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="uri" minOccurs="1" maxOccurs="1">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element name="fuzz" type="FuzzType" minOccurs = '0' 
+                            maxOccurs = 'unbounded' />
+						  <xs:element name="macro" type="MacroType" minOccurs = '0' 
+                            maxOccurs = '1' />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="httpVersion" minOccurs="1" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="headers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="header" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="key" minOccurs="1" maxOccurs="1">
+						    <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="fuzz" type="FuzzType" minOccurs = '0' 
+                                  maxOccurs = 'unbounded' />
+								<xs:element name="macro" type="MacroType" minOccurs = '0' 
+                                  maxOccurs = '1' />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="value" minOccurs="1" maxOccurs="1">
+						    <xs:complexType mixed="true">
+                              <xs:sequence>
+                                <xs:element name="fuzz" type="FuzzType" minOccurs = '0' 
+                                  maxOccurs = 'unbounded' />
+								<xs:element name="macro" type="MacroType" minOccurs = '0' 
+                                  maxOccurs = '1' />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+			  <xs:element name="body" minOccurs="0" maxOccurs="1">
+                <xs:complexType mixed="true">
+                  <xs:sequence>
+                    <xs:element name="fuzz" type="FuzzType" minOccurs = '0' 
+                      maxOccurs = 'unbounded' />
+					<xs:element name="macro" type="MacroType" minOccurs = '0' 
+                      maxOccurs = '1' />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="expects" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="expect" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="validationType" minOccurs="1" maxOccurs="1"/>
+                    <xs:element type="xs:string" name="content" minOccurs="1" maxOccurs="1"/>
+					<xs:element type="xs:string" name="responseBodyFormat" minOccurs="0" maxOccurs="1"/>
+					<xs:element type="xs:string" name="responseBodyElement" minOccurs="0" maxOccurs="1"/>
+					<xs:element type="xs:boolean" name="match" minOccurs="0" maxOccurs="1"/>
+					<xs:element type="xs:string" name="exceptionType" minOccurs="0" maxOccurs="1"/>
+					<xs:element type="xs:string" name="exceptionContent" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FuzzType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type"/>
+		<xs:attribute type="xs:string" name="minLength"/>
+		<xs:attribute type="xs:string" name="maxLength"/>
+		<xs:attribute type="xs:string" name="min"/>
+		<xs:attribute type="xs:string" name="max"/>
+		<xs:attribute type="xs:string" name="total"/>
+		<xs:attribute type="xs:string" name="generateAll"/>
+		<xs:attribute type="xs:string" name="modifications"/>
+		<xs:attribute type="xs:string" name="combination"/>
+		<xs:attribute type="xs:string" name="macroId"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="MacroType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="id"/>
+		<xs:attribute type="xs:string" name="format"/>
+		<xs:attribute type="xs:string" name="part"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><request><requestline><method>POST</method><uri>https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&amp;appver=45.0.2&amp;pver=2.2</uri></requestline><headers/><version>HTTP/1.1mozstd-track-digest256;
+mozstd-trackwhite-digest256;
+</version></request>

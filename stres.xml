@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+	<requestline>
+		<method>POST</method>
+		<uri>http://localhost/edit-news.php?id=<fuzz type="sqlinjection">1</fuzz></uri>
+		<version>HTTP/1.1</version>
+	</requestline>
+	<headers>
+		<header name="Content-Length">68</header>
+		<header name="Connection">keep-alive</header>
+	</headers>
+	<message-body>
+	title=Article Title%20&amp;content=This%20is%20the%20article%20content
+	</message-body>
+</request>

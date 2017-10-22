@@ -1,0 +1,5 @@
+/example.php
+example.php
+/example
+example
+aim.php

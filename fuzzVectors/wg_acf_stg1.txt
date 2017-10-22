@@ -1,0 +1,8 @@
+remove
+Remove
+delete
+Delete
+del
+Del
+clear
+Clear

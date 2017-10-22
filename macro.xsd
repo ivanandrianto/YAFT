@@ -1,0 +1,38 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="request" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="requestline">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="method" minOccurs="1" maxOccurs="1"/>
+                    <xs:element type="xs:string" name="uri" minOccurs="1" maxOccurs="1"/>
+                    <xs:element type="xs:string" name="httpVersion" minOccurs="1" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="headers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="header" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="key"  minOccurs="1" maxOccurs="1"/>
+                          <xs:element type="xs:string" name="value"  minOccurs="1" maxOccurs="1"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+			  <xs:element type="xs:string" name="body" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

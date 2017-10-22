@@ -1,0 +1,8 @@
+passwords/
+config.inc
+classes/
+javascript/
+owasp-esapi-php/
+documentation/
+phpmyadmin/
+includes/
